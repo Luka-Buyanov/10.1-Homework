@@ -2,6 +2,8 @@ from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(card_: str) -> str:
+    """Маскирует звёздочками номер карты или счёта"""
+
     card_name_ = ""
     card_number_ = ""
     for i in range(len(card_)):
@@ -17,3 +19,14 @@ def mask_account_card(card_: str) -> str:
         mask_number = get_mask_card_number(card_number)
 
     return card_name_ + mask_number
+
+
+def get_date(input_date_: str) -> str:
+    """Преобразует дату в привычный формат"""
+
+    year = input_date_[0:4]
+    month = input_date_[5:7]
+    day = input_date_[8:10]
+    output_date_ = day + "." + month + "." + year
+
+    return output_date_

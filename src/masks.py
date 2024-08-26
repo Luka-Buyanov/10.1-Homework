@@ -1,5 +1,5 @@
 def get_mask_card_number(card_number_: int) -> str:
-    """ " Функция маскирующая номер карты звёздочками"""
+    """Функция маскирующая номер карты звёздочками"""
 
     masked_card_ = ""
     card_number = str(card_number_)
@@ -16,7 +16,7 @@ def get_mask_card_number(card_number_: int) -> str:
 
 
 def get_mask_account(account_number_: int) -> str:
-    """ "Функция маскирующая номер аккаунтра звёзочками"""
+    """Функция маскирующая номер аккаунтра звёзочками"""
 
     masked_account_ = ""
     account_number = str(account_number_)
