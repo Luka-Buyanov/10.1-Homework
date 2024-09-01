@@ -14,7 +14,7 @@ def filter_by_state(dictionary_: list, state_: str = "EXECUTED") -> list:
     return sorted_dictionary
 
 
-def sort_by_date(date_dictionary_: list, date_: bool = True) -> list:
+def sort_by_date(date_dictionary_: list, date_: bool = False) -> list:
     """Функция сортирующая список по дате"""
 
     def get_date_(dictionary: dict) -> str:
