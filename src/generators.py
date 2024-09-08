@@ -37,12 +37,12 @@ def transaction_descriptions(int_transactions: list[dict]) -> Generator:
         count += 1
 
 
-def card_number_generator(start_number: int, end_number: int) -> Generator:
+def card_number_generator(start: int, end: int) -> Generator:
     """Функция генерирующая номера кард в диапазоне между первым и вторым числом"""
 
-    while start_number <= end_number:
+    while start <= end:
         output_number = ""
-        using_number = str(start_number)
+        using_number = str(start)
         part_of_zero = ""
         for i in range(16 - len(using_number)):
             part_of_zero += "0"
@@ -53,4 +53,4 @@ def card_number_generator(start_number: int, end_number: int) -> Generator:
             output_number += using_number_2[i]
 
         yield output_number
-        start_number += 1
+        start += 1
