@@ -12,17 +12,17 @@ def log(filename: Any = None) -> Any:
             """Подфункция декоратора, вычисляет время работы функции, выводит результаты в лог-файл"""
 
             log_info = ""
-            start_time: datetime = datetime.now()
+            start_time: datetime = datetime.now().replace(microsecond=0)
             work_time: timedelta = datetime.now() - datetime.now()
             try:
                 result = func(*args, **kwargs)
             except Exception as error:
-                end_time: datetime = datetime.now()
+                end_time: datetime = datetime.now().replace(microsecond=0)
                 work_time = end_time - start_time
                 log_info = f"""File name: {func.__name__}, Error: {error.__class__.__name__}, Why error: {error}
 Inputs: {*args, *kwargs}, Start time: {start_time}, End time: {end_time}, Work time: {work_time}"""
             else:
-                end_time = datetime.now()
+                end_time = datetime.now().replace(microsecond=0)
                 work_time = end_time - start_time
                 log_info = f"""File name: {func.__name__}, Ok, Result = {result}
 Start time: {start_time}, End time: {end_time}, Work time: {work_time}"""
