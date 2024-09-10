@@ -3,8 +3,14 @@ from typing import Any
 
 
 def log(filename: Any = None) -> Any:
+    """Функция декоратор вызывающая функции для записи результатов работы функции"""
+
     def decorator(func: Any) -> Any:
+        """Подфункция декоратора, использующая функцию под декоратором"""
+
         def checking(*args: Any, **kwargs: Any) -> None:
+            """Подфункция декоратора, вычисляет время работы функции, выводит результаты в лог-файл"""
+
             log_info = ""
             start_time: datetime = datetime.now()
             work_time: timedelta = datetime.now() - datetime.now()
