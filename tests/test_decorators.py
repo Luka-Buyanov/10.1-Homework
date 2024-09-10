@@ -10,6 +10,8 @@ def test_none_date(capsys: Any) -> None:
 
     @log()
     def my_function(x: int, y: int) -> int:
+        """Функция выводящая сумму двух чисел"""
+
         return x + y
 
     my_function(1, 2)
@@ -29,6 +31,8 @@ def test_get_date(capsys: Any) -> None:
 
     @log(filename="mylog.txt")
     def my_function(x: int, y: int) -> int:
+        """Функция выводящая сумму двух чисел"""
+
         return x + y
 
     start_time: datetime = datetime.now().replace(microsecond=0)
@@ -50,6 +54,8 @@ def test_none_date_error(capsys: Any) -> None:
 
     @log()
     def my_function(x: int, y: int) -> int:
+        """Функция выводящая сумму двух чисел"""
+
         return x + y
 
     my_function(1, "2")
@@ -69,6 +75,8 @@ def test_get_date_error(capsys: Any) -> None:
 
     @log(filename="mylog.txt")
     def my_function(x: int, y: int) -> int:
+        """Функция выводящая сумму двух чисел"""
+
         return x + y
 
     start_time: datetime = datetime.now().replace(microsecond=0)
