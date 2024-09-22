@@ -6,12 +6,16 @@ from src.utils import transaction_data
 
 @patch("json.load")
 def test_not_list_output(data: Any) -> None:
+    """Функция проверяющая вывод при получении данных не в списке"""
+
     data.return_value = "asskfwhjbfhj"
     assert transaction_data("C:/Users/ciple/PycharmProjects/Homework/data/operations.json") == []
 
 
 @patch("json.load")
 def test_list_output(data: Any) -> None:
+    """Функция проверяющая вывод при данных в виде списка"""
+
     data.return_value = [
         {
             "id": 441945886,
@@ -55,10 +59,14 @@ def test_list_output(data: Any) -> None:
 
 
 def test_file_not_found_output() -> None:
+    """Функция проверяющая случай когда файл не найден"""
+
     assert transaction_data("aaa") == []
 
 
 @patch("json.load")
 def test_null_file_output(data: Any) -> None:
+    """Функция проверяющая вывод при пустом файле"""
+
     data.return_value = ""
     assert transaction_data("C:/Users/ciple/PycharmProjects/Homework/data/operations.json") == []
