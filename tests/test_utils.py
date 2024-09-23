@@ -9,7 +9,7 @@ def test_not_list_output(data: Any) -> None:
     """Функция проверяющая вывод при получении данных не в списке"""
 
     data.return_value = "asskfwhjbfhj"
-    assert transaction_data("C:/Users/ciple/PycharmProjects/Homework/data/operations.json") == []
+    assert transaction_data("../data/operations.json") == []
 
 
 @patch("json.load")
@@ -36,7 +36,7 @@ def test_list_output(data: Any) -> None:
             "to": "Счет 35383033474447895560",
         },
     ]
-    assert transaction_data("C:/Users/ciple/PycharmProjects/Homework/data/operations.json") == [
+    assert transaction_data("../data/operations.json") == [
         {
             "id": 441945886,
             "state": "EXECUTED",
@@ -69,4 +69,4 @@ def test_null_file_output(data: Any) -> None:
     """Функция проверяющая вывод при пустом файле"""
 
     data.return_value = ""
-    assert transaction_data("C:/Users/ciple/PycharmProjects/Homework/data/operations.json") == []
+    assert transaction_data("../data/operations.json") == []
