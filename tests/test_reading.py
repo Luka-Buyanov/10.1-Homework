@@ -212,4 +212,4 @@ def test_null_input_xlsx(data: Any) -> None:
     """Функция проверяющая работу при пустом файле."""
 
     data.return_value = pd.DataFrame([])
-    assert reader_csv("../data/transactions.xlsx") == []
+    assert reader_excel("../data/transactions.xlsx") == []
