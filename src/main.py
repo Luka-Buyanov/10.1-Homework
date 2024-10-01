@@ -91,9 +91,9 @@ def main() -> None:
             for operation in sorted_data:
                 data = get_date(operation["date"])
                 description = operation["description"]
-                from_operation = ""
                 if "from" in operation:
-                    from_operation = mask_account_card(operation["from"])
+                    if operation["from"] != "" and type(operation["from"]) == str:
+                        from_operation = mask_account_card(operation["from"])
                 to_operation = mask_account_card(operation["to"])
                 if "amount" in operation:
                     summ = operation["amount"]
@@ -121,3 +121,5 @@ def main() -> None:
             print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации")
 
     print("Goodbye!")
+
+main()
