@@ -161,4 +161,3 @@ cython_debug/
 .idea/
 
 #Empty files
-src/main.py
