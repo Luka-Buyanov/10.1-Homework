@@ -1,4 +1,4 @@
-from src.widget import get_date
+from typing import Any
 
 
 def filter_by_state(dictionary: list[dict], state: str = "EXECUTED") -> list[dict]:
@@ -6,8 +6,11 @@ def filter_by_state(dictionary: list[dict], state: str = "EXECUTED") -> list[dic
 
     sorted_dictionary = []
     for element in dictionary:
-        if element["state"] == state:
-            sorted_dictionary.append(element)
+        try:
+            if element["state"] == state:
+                sorted_dictionary.append(element)
+        except KeyError:
+            continue
 
     return sorted_dictionary
 
@@ -15,10 +18,10 @@ def filter_by_state(dictionary: list[dict], state: str = "EXECUTED") -> list[dic
 def sort_by_date(date_dictionary: list[dict], date: bool = False) -> list[dict]:
     """Функция сортирующая список по дате"""
 
-    def get_formated_date(dictionary: dict) -> str:
+    def get_formated_date(dictionary: dict) -> Any:
         """Подфункция выводящая дату в привычном формате"""
 
-        formated_date = get_date(dictionary["date"])
+        formated_date = dictionary["date"]
         return formated_date
 
     sorted_date = sorted(date_dictionary, key=get_formated_date, reverse=date)
