@@ -92,7 +92,7 @@ def main() -> None:
                 data = get_date(operation["date"])
                 description = operation["description"]
                 if "from" in operation:
-                    if operation["from"] != "" and type(operation["from"]) == str:
+                    if operation["from"] != "" and type(operation["from"]) is str:
                         from_operation = mask_account_card(operation["from"])
                 to_operation = mask_account_card(operation["to"])
                 if "amount" in operation:
@@ -121,5 +121,3 @@ def main() -> None:
             print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации")
 
     print("Goodbye!")
-
-main()
