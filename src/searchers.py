@@ -38,14 +38,14 @@ def counter_categories(list_dictionaries: list[dict], list_categories: list[str]
     for dictionary in list_dictionaries:
         state = dictionary["state"]
         list_state.append(state)
-        logger.info("Создан список всех категорий операций")
+    logger.info("Создан список всех категорий операций")
     if list_state:
         result = []
         counted = Counter(list_state)
         for category in list_categories:
-            for count_category in counted:
+            for count_category, number in counted.items():
                 if count_category == category:
-                    result.append(count_category)
+                    result.append({count_category: number})
         if result:
             logger.info("Завершена функция подсчёта операций по заданным категориям")
             return result

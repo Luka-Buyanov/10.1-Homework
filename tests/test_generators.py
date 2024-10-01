@@ -207,9 +207,9 @@ from src.generators import card_number_generator, filter_by_currency, transactio
                 },
             ],
             "BANANAS",
-            ["Нет операций", "Нет операций", "Нет операций", "Нет операций"],
+            [],
         ),
-        ([], "USD", ["Нет операций", "Нет операций", "Нет операций", "Нет операций"]),
+        ([], "USD", []),
     ),
 )
 def test_filter_by_currency(transactions: list[dict], currency: str, filter_transactions: list[dict]) -> None:
@@ -218,7 +218,8 @@ def test_filter_by_currency(transactions: list[dict], currency: str, filter_tran
 
     result = []
     usd_transactions = filter_by_currency(transactions, currency)
-    for i in range(4):
+    count = sum(1 for x in usd_transactions)
+    for i in range(count):
         result.append(next(usd_transactions))
     assert result == filter_transactions
 

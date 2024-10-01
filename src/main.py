@@ -3,7 +3,7 @@ from src.processing import filter_by_state, sort_by_date
 from src.reading import reader_csv, reader_excel
 from src.searchers import string_search
 from src.utils import transaction_data
-from src.widget import get_date
+from src.widget import get_date, mask_account_card
 
 
 def main() -> None:
@@ -91,10 +91,10 @@ def main() -> None:
             for operation in sorted_data:
                 data = get_date(operation["date"])
                 description = operation["description"]
-                from_operation = []
+                from_operation = ""
                 if "from" in operation:
-                    from_operation = operation["from"]
-                to_operation = operation["to"]
+                    from_operation = mask_account_card(operation["from"])
+                to_operation = mask_account_card(operation["to"])
                 if "amount" in operation:
                     summ = operation["amount"]
                     code = operation["currency_code"]
@@ -121,6 +121,3 @@ def main() -> None:
             print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации")
 
     print("Goodbye!")
-
-
-main()
