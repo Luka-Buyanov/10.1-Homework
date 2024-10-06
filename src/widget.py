@@ -1,3 +1,5 @@
+from typing import Any
+
 from src.masks import get_mask_account, get_mask_card_number
 
 
@@ -21,7 +23,7 @@ def mask_account_card(card_: str) -> str:
     return card_name_ + mask_number
 
 
-def get_date(input_date_: str) -> str:
+def get_date(input_date_: Any) -> Any:
     """Преобразует дату в привычный формат"""
 
     year = input_date_[0:4]

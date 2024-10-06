@@ -5,10 +5,18 @@ def filter_by_currency(dictionaries_transactions: list[dict], int_currency: str)
     """Функция фильтрующая список операций по заданной валюте"""
 
     len_input = len(dictionaries_transactions)
+    if len_input == 0:
+        return
     count = 0
+    test_dictionary = dictionaries_transactions[2]
     while True:
         if count >= len_input:
-            yield "Нет операций"
+            break
+        elif "currency_code" in test_dictionary:
+            dictionary = dictionaries_transactions[count]
+            element_code = dictionary["currency_code"]
+            if element_code == int_currency:
+                yield dictionary
         else:
 
             dictionary = dictionaries_transactions[count]
